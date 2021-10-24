@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WellBeing-Backend-API", "WellBeing-Backend-API\WellBeing-Backend-API.csproj", "{6E5E6697-ADF7-4E17-A6ED-621E3D085875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WellBeingBackendAPI", "WellBeing-Backend-API\WellBeingBackendAPI.csproj", "{6E5E6697-ADF7-4E17-A6ED-621E3D085875}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Dto", "Common.Dto\Common.Dto.csproj", "{9A5972B0-61BC-458E-B57B-46083A954713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Dao", "Common.Dao\Common.Dao.csproj", "{7CCF9F2B-E587-4DBE-B5A8-A78948EFDCD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Dao", "Common.Dao\Common.Dao.csproj", "{7CCF9F2B-E587-4DBE-B5A8-A78948EFDCD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

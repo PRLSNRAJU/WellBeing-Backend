@@ -10,7 +10,7 @@ namespace WellBeing_Backend_API
     /// This class extends from APIGatewayProxyFunction which contains the method FunctionHandlerAsync which is the 
     /// actual Lambda function entry point. The Lambda handler field should be set to
     /// 
-    /// WellBeing-Backend-API::WellBeing-Backend-API.LambdaEntryPoint::FunctionHandlerAsync
+    /// WellBeingBackendAPI::WellBeingBackendAPI.LambdaEntryPoint::FunctionHandlerAsync
     /// </summary>
     public class LambdaEntryPoint :
 

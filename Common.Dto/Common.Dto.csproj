@@ -1,7 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/PRLSNRAJU/WellBeing-Backend</PackageProjectUrl>
+    <Description>WellBeing Dto classes</Description>
+    <RepositoryUrl>https://github.com/PRLSNRAJU/WellBeing-Backend</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

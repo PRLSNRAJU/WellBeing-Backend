@@ -8,7 +8,7 @@
     "AspNetCoreFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
-        "Handler": "WellBeing-Backend-API::WellBeing_Backend_API.LambdaEntryPoint::FunctionHandlerAsync",
+        "Handler": "WellBeingBackendAPI::WellBeing_Backend_API.LambdaEntryPoint::FunctionHandlerAsync",
         "Runtime": "dotnetcore3.1",
         "CodeUri": "",
         "MemorySize": 256,
@@ -16,32 +16,8 @@
         "Role": null,
         "Policies": [
           "AWSLambda_FullAccess"
-        ],
-        "Events": {
-          "ProxyResource": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/{proxy+}",
-              "Method": "ANY"
-            }
-          },
-          "RootResource": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/",
-              "Method": "ANY"
-            }
-          }
-        }
+        ]
       }
-    }
-  },
-  "Outputs": {
-    "ApiURL": {
-      "Description": "API endpoint URL for Prod environment",
-      "Value": {
-        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-      }
-    }
+    }  
   }
 }

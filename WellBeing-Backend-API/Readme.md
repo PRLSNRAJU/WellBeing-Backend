@@ -58,12 +58,12 @@ If already installed check if new version is available.
 
 Execute unit tests
 ```
-    cd "WellBeing-Backend-API/test/WellBeing-Backend-API.Tests"
+    cd "WellBeingBackendAPI/test/WellBeingBackendAPI.Tests"
     dotnet test
 ```
 
 Deploy application
 ```
-    cd "WellBeing-Backend-API/src/WellBeing-Backend-API"
+    cd "WellBeingBackendAPI/src/WellBeingBackendAPI"
     dotnet lambda deploy-serverless
 ```

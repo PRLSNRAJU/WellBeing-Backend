@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Common.Dto
 {
-    class UserStepsDto
+    public class UserStepsDto
     {
+        public int ID;
+        public string steps;
     }
 }

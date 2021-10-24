@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WellBeing-Backend-API": {
+    "WellBeingBackendAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

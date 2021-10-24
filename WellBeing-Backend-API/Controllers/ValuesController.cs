@@ -20,7 +20,7 @@ namespace WellBeing_Backend_API.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "Welcome to running ASP.NET Core on AWS api Lambda";
         }
 
         // POST api/values
