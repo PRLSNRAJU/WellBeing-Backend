@@ -20,16 +20,16 @@ namespace WellBeingBackendAPI.Controllers
         public string Get()
         {
             DBService db = new DBService();
-            return JsonConvert.SerializeObject(db.GetUserSteps());
+            return JsonConvert.SerializeObject(db.Users);
         }
 
 
         // GET api/<UsersController>/5
         [HttpPost]
-        public string Post([FromBody] UserStepsDto value)
+        public string Post([FromBody] UserDto value)
         {
             DBService db = new DBService();
-            db.UpdateUserSteps(value.ID, Convert.ToInt32(value.steps));
+            db.AddUser(value);
             return JsonConvert.SerializeObject(db);
         }
     }

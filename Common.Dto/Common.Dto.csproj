@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/PRLSNRAJU/WellBeing-Backend</PackageProjectUrl>
+    <PackageProjectUrl></PackageProjectUrl>
     <Description>WellBeing Dto classes</Description>
-    <RepositoryUrl>https://github.com/PRLSNRAJU/WellBeing-Backend</RepositoryUrl>
+    <RepositoryUrl></RepositoryUrl>
   </PropertyGroup>
 
 </Project>

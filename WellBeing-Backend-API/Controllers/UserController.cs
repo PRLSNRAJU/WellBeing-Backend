@@ -16,7 +16,7 @@ namespace WellBeingBackendAPI.Controllers
     {
         // GET: api/<UsersController>
         [HttpGet]
-        public string Get([FromBody] List<UserStepsDto> userSteps)
+        public string Get()
         {
             DBService db = new DBService();
             return JsonConvert.SerializeObject(db.GetUserSteps());
@@ -24,20 +24,10 @@ namespace WellBeingBackendAPI.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] UserStepsDto value)
         {
-            var user = JsonConvert.DeserializeObject<UserDto>(value);
             DBService db = new DBService();
-            db.AddUser(user);
-        }
-
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-            var user = JsonConvert.DeserializeObject<UserStepsDto>(value);
-            DBService db = new DBService();
-            db.UpdateUserSteps(user.ID, Convert.ToInt32(user.steps));
+            db.UpdateUserSteps(value.PhoneNumber, Convert.ToInt32(value.steps));
         }
     }
 }

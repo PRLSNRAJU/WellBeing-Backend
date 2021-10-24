@@ -38,7 +38,10 @@ namespace WellBeingBackendAPI.Services
                 Connection = new MySqlConnection(connstring);
             }
 
-            Connection.Open();
+            if(Connection.State != System.Data.ConnectionState.Open)
+            {
+                Connection.Open();
+            }
 
             return true;
         }

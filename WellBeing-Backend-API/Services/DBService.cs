@@ -24,17 +24,16 @@ namespace WellBeingBackendAPI.Services
             if (dbCon.IsConnect())
             {
                 //suppose col0 and col1 are defined as VARCHAR in the DB
-                string query = "SELECT * FROM wellbeing_schema.Users";
+                string query = "SELECT * FROM wellbeing_schema.users";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     UserDto user = new UserDto();
-                    user.ID = reader.GetString(0);
+                    user.PHONENumber = reader.GetString(0);
                     user.Name = reader.GetString(1);
-                    user.PHONENumber = reader.GetString(2);
-                    user.BDayConsent = reader.GetString(4);
+                    user.BDayConsent = reader.GetString(2);
                     user.BirthDay = user.BDayConsent == "1" ? reader.GetString(3) : string.Empty;
 
                     Users.Add(user);
@@ -52,11 +51,11 @@ namespace WellBeingBackendAPI.Services
             if (dbCon.IsConnect())
             {
                 //suppose col0 and col1 are defined as VARCHAR in the DB
-                string query = $"INSERT INTO `wellbeing_schema`.`Users` (`id`, `Name`, `PhoneNumber`, `BirthDay`, `BDayConsent`) VALUES('{user.ID}', '{user.Name}', '{user.PHONENumber}', '{user.BirthDay}', '{user.BDayConsent}')";
+                string query = $"INSERT INTO `wellbeing_schema`.`users` (`PhoneNumber`, `Name`, `BDayConsent`, `BirthDay`) VALUES('{user.PHONENumber}', '{user.Name}', '{user.BDayConsent}', '{user.BirthDay}')";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 cmd.ExecuteNonQuery();
 
-                query = $"INSERT INTO `wellbeing_schema`.`steps` (`id`, `CountPerDay`) VALUES('{user.ID}', '0')";
+                query = $"INSERT INTO `wellbeing_schema`.`steps` (`PhoneNumber`, `CountPerDay`) VALUES('{user.PHONENumber}', '0')";
                 cmd = new MySqlCommand(query, dbCon.Connection);
                 cmd.ExecuteNonQuery();
                 
@@ -64,7 +63,7 @@ namespace WellBeingBackendAPI.Services
             }
         }
 
-        public void UpdateUserSteps(int id, int steps)
+        public void UpdateUserSteps(string phoneNumber, int steps)
         {
             DBConnection dbCon = DBConnection.Instance();
 
@@ -72,7 +71,7 @@ namespace WellBeingBackendAPI.Services
             {
                 //suppose col0 and col1 are defined as VARCHAR in the DB
 
-                string query = $"UPDATE `wellbeing_schema`.`steps` SET `CountPerDay` = '{steps}' WHERE (`id` = '{id}')";
+                string query = $"UPDATE `wellbeing_schema`.`steps` SET `CountPerDay` = '{steps}' WHERE (`PhoneNumber` = '{phoneNumber}')";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 cmd.ExecuteNonQuery();
 
@@ -87,15 +86,15 @@ namespace WellBeingBackendAPI.Services
             if (dbCon.IsConnect())
             {
                 //suppose col0 and col1 are defined as VARCHAR in the DB
-                string query = "SELECT * FROM wellbeing_schema.steps";
+                string query = "SELECT * FROM wellbeing_schema.steps order by CountPerDay desc";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     UserStepsDto steps = new UserStepsDto();
-                    steps.ID = reader.GetInt32(0);
-                    steps.steps = reader.GetString(1);
+                    steps.PhoneNumber = reader.GetString(0);
+                    steps.steps = Convert.ToString(reader.GetInt32(1));
 
                     userSteps.Add(steps);
                 }
@@ -105,9 +104,9 @@ namespace WellBeingBackendAPI.Services
             return userSteps;
         }
 
-        public UserStepsDto GetUserSteps(int id)
+        public UserStepsDto GetUserSteps(string id)
         {
-            return GetUserSteps().Where(x => x.ID == id).FirstOrDefault();
+            return GetUserSteps().Where(x => x.PhoneNumber == id).FirstOrDefault();
         }
 
     }

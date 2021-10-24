@@ -6,7 +6,7 @@ namespace Common.Dto
 {
     public class UserStepsDto
     {
-        public int ID;
+        public string PhoneNumber;
         public string steps;
     }
 }
